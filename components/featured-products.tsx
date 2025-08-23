@@ -3,6 +3,9 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { OptimizedImage } from "./optimized-image"
 import { LazyLoadSection } from "./lazy-load-section"
+import { client, urlFor } from "@/lib/sanity.client"
+import { featuredProductsQuery } from "@/lib/queries"
+import Link from "next/link"
 
 const StarIcon = ({ filled = false }: { filled?: boolean }) => (
   <svg
@@ -36,82 +39,10 @@ const ArrowRightIcon = () => (
   </svg>
 )
 
-const featuredProducts = [
-  {
-    id: 1,
-    name: "Smart Thermostat Pro",
-    description: "AI-powered climate control with energy savings up to 23%",
-    price: "$249",
-    originalPrice: "$299",
-    rating: 4.8,
-    reviews: 1247,
-    image: "/placeholder-4kc8s.png",
-    badge: "Best Seller",
-    category: "Climate Control",
-  },
-  {
-    id: 2,
-    name: "Security Camera System",
-    description: "4K wireless cameras with night vision and AI detection",
-    price: "$399",
-    originalPrice: "$499",
-    rating: 4.9,
-    reviews: 892,
-    image: "/placeholder-wi2kw.png",
-    badge: "Editor's Choice",
-    category: "Security",
-  },
-  {
-    id: 3,
-    name: "Smart Door Lock",
-    description: "Keyless entry with fingerprint and smartphone access",
-    price: "$179",
-    originalPrice: "$229",
-    rating: 4.7,
-    reviews: 634,
-    image: "/placeholder-z3x6g.png",
-    badge: "New",
-    category: "Access Control",
-  },
-  {
-    id: 4,
-    name: "Voice Assistant Hub",
-    description: "Central control for all your smart home devices",
-    price: "$129",
-    originalPrice: "$159",
-    rating: 4.6,
-    reviews: 1089,
-    image: "/smart-home-hub.png",
-    badge: "Popular",
-    category: "Hub & Control",
-  },
-  {
-    id: 5,
-    name: "Smart Lighting Kit",
-    description: "Color-changing LED bulbs with app control and scheduling",
-    price: "$89",
-    originalPrice: "$119",
-    rating: 4.5,
-    reviews: 756,
-    image: "/placeholder-h0d9m.png",
-    badge: "Value Pick",
-    category: "Lighting",
-  },
-  {
-    id: 6,
-    name: "Robot Vacuum Pro",
-    description: "Self-emptying robot vacuum with mapping and scheduling",
-    price: "$599",
-    originalPrice: "$799",
-    rating: 4.8,
-    reviews: 423,
-    image: "/modern-robot-vacuum.png",
-    badge: "Premium",
-    category: "Cleaning",
-  },
-]
 
-export function FeaturedProducts() {
+export async function FeaturedProducts() {
+  const featuredProducts: Product[] = await client.fetch(featuredProductsQuery);
+
   return (
     <LazyLoadSection>
       <section className="py-20 bg-background">
@@ -131,17 +62,17 @@ export function FeaturedProducts() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProducts.map((product) => (
               <Card
-                key={product.id}
+                key={product._id}
                 className="group hover:shadow-xl transition-all duration-300 border-border hover:border-violet-300 dark:hover:border-violet-700 bg-card hover:bg-card/80 dark:hover:bg-card/90"
               >
                 <CardContent className="p-0">
                   {/* Product Image */}
                   <div className="relative overflow-hidden rounded-t-lg">
                     <OptimizedImage
-                      src={product.image}
+                      src={urlFor(product.image).width(1000).height(1000).url() || "/placeholder.svg"}
                       alt={product.name}
-                      width={300}
-                      height={300}
+                      width={1000}
+                      height={1000}
                       className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
@@ -149,19 +80,21 @@ export function FeaturedProducts() {
                       className="absolute top-3 left-3 bg-violet-600 hover:bg-violet-700 text-white border-0"
                       variant="secondary"
                     >
-                      {product.badge}
+                      {"featured"}
                     </Badge>
                     <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-medium text-foreground">
-                      {product.category}
+                      {product.category.title}
                     </div>
                   </div>
 
                   {/* Product Info */}
                   <div className="p-6 space-y-4">
                     <div>
-                      <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
-                        {product.name}
-                      </h3>
+                      <Link href={`/products/${product.slug.current}`}>
+                        <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                          {product.name}
+                        </h3>
+                      </Link>
                       <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
                     </div>
 
@@ -186,9 +119,9 @@ export function FeaturedProducts() {
                       >
                         Save{" "}
                         {Math.round(
-                          ((Number.parseInt(product.originalPrice.slice(1)) - Number.parseInt(product.price.slice(1))) /
-                            Number.parseInt(product.originalPrice.slice(1))) *
-                            100,
+                          (product.originalPrice - product.price) /
+                          (product.originalPrice) *
+                          100,
                         )}
                         %
                       </Badge>
