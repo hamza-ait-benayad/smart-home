@@ -102,6 +102,44 @@ export const singleProductQuery = (slug: string) => `*[_type == "product" && slu
 }`
 
 
+export const featuredProductsQuery = `*[_type == "product" && featured == true]{
+  _id,
+  name,
+  "slug": slug.current,
+  description,
+  price,
+  originalPrice,
+  rating,
+  reviews,
+  affiliateUrl,
+  brand,
+  model,
+  features,
+  specifications[]{
+    key,
+    value
+  },
+  image{
+    asset->{
+      url,
+      metadata { lqip, dimensions }
+    }
+  },
+  gallery[]{
+    asset->{
+      url,
+      metadata { lqip, dimensions }
+    }
+  },
+  category->{
+    _id,
+    title,
+    "slug": slug.current
+  }
+}`;
+
+
+
 export const relatedProductsQuery = `*[_type == "product" && references($categoryId) && _id != $currentId]{
   name,
   slug,
