@@ -23,17 +23,17 @@ const sourceSans = Source_Sans_Pro({
 export const metadata: Metadata = {
   metadataBase: new URL("https://techhomehub.com"),
   title: {
-    default: "TechHome Hub - Smart Home & Tech Gadgets",
-    template: "%s | TechHome Hub",
+    default: "Echofex - Smart Home & Tech Gadgets",
+    template: "%s | Echofex",
   },
   description: "Expert reviews and guides for smart home devices, IoT gadgets, and home automation technology.",
   generator: "Next.js",
-  applicationName: "TechHome Hub",
+  applicationName: "Echofex",
   referrer: "origin-when-cross-origin",
   keywords: ["smart home", "IoT", "home automation", "tech reviews", "gadgets"],
-  authors: [{ name: "TechHome Hub Team", url: "https://techhomehub.com" }],
-  creator: "TechHome Hub",
-  publisher: "TechHome Hub",
+  authors: [{ name: "Echofex Team", url: "https://techhomehub.com" }],
+  creator: "Echofex",
+  publisher: "Echofex",
   formatDetection: {
     email: false,
     address: false,
@@ -51,8 +51,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://techhomehub.com" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/echofex-icon-logo.png" sizes="any" />
+        <link rel="icon" href="/echofex-icon-logo.png" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#7c3aed" />
@@ -84,7 +84,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "TechHome Hub",
+              name: "Echofex",
               description: "Expert reviews and guides for smart home devices and technology",
               url: "https://techhomehub.com",
               logo: "https://techhomehub.com/logo.png",

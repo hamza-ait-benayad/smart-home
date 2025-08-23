@@ -5,14 +5,14 @@ import { Footer } from "@/components/footer"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "TechHome Hub - Smart Home Devices & Tech Gadgets Reviews",
+  title: "Echofex - Smart Home Devices & Tech Gadgets Reviews",
   description:
     "Discover the best smart home devices and tech gadgets. Expert reviews, buying guides, and recommendations for home automation, IoT devices, and connected living.",
   keywords:
     "smart home, IoT devices, home automation, smart gadgets, tech reviews, connected devices, smart thermostat, security cameras",
-  authors: [{ name: "TechHome Hub Team" }],
-  creator: "TechHome Hub",
-  publisher: "TechHome Hub",
+  authors: [{ name: "Echofex Team" }],
+  creator: "Echofex",
+  publisher: "Echofex",
   formatDetection: {
     email: false,
     address: false,
@@ -23,17 +23,17 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "TechHome Hub - Smart Home Devices & Tech Gadgets Reviews",
+    title: "Echofex - Smart Home Devices & Tech Gadgets Reviews",
     description:
       "Discover the best smart home devices and tech gadgets. Expert reviews, buying guides, and recommendations for home automation.",
     url: "https://techhomehub.com",
-    siteName: "TechHome Hub",
+    siteName: "Echofex",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "TechHome Hub - Smart Home Technology",
+        alt: "Echofex - Smart Home Technology",
       },
     ],
     locale: "en_US",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TechHome Hub - Smart Home Devices & Tech Gadgets Reviews",
+    title: "Echofex - Smart Home Devices & Tech Gadgets Reviews",
     description:
       "Discover the best smart home devices and tech gadgets. Expert reviews, buying guides, and recommendations.",
     images: ["/twitter-image.png"],
@@ -81,7 +81,7 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "TechHome Hub",
+            name: "Echofex",
             description:
               "Expert reviews and guides for smart home devices, IoT gadgets, and home automation technology.",
             url: "https://techhomehub.com",
@@ -95,7 +95,7 @@ export default function HomePage() {
             },
             publisher: {
               "@type": "Organization",
-              name: "TechHome Hub",
+              name: "Echofex",
               logo: {
                 "@type": "ImageObject",
                 url: "https://techhomehub.com/logo.png",
