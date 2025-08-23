@@ -140,14 +140,27 @@ export const featuredProductsQuery = `*[_type == "product" && featured == true]{
 
 
 
-export const relatedProductsQuery = `*[_type == "product" && references($categoryId) && _id != $currentId]{
+export const relatedProductsQuery = `*[
+  _type == "product" &&
+  references($categoryId) &&
+  _id != $currentId
+][0...3] {
   name,
   slug,
   price,
   originalPrice,
   rating,
   reviews,
-  "imageUrl": image.asset->url,
+  category->{
+    _id,
+    title,
+    "slug": slug.current
+  },
+  image{
+    asset->{
+      url,
+      metadata { lqip, dimensions }
+    }
+  },
   affiliateUrl
-}[0...4]
-`
+}`;

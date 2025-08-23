@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Star, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { client } from "@/lib/sanity.client"
+import { client, urlFor } from "@/lib/sanity.client"
 import { relatedProductsQuery } from "@/lib/queries"
 
 
@@ -37,7 +37,7 @@ export async function RelatedProducts({ categoryId, currentId }: RelatedProducts
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
                     <Image
-                      src={product.image || "/placeholder.svg"}
+                      src={product.image ? urlFor(product.image).width(800).height(500).url() : "/placeholder.svg"}
                       alt={product.name}
                       width={300}
                       height={300}
