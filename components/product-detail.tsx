@@ -62,10 +62,10 @@ export function ProductDetail({ product }: ProductDetailProps) {
           {/* Main Image */}
           <div className="relative overflow-hidden rounded-lg bg-muted/30">
             <Image
-              src={urlFor(gallery[selectedImage]).width(400).height(400).url() || "/placeholder.svg"}
+              src={urlFor(gallery[selectedImage]).width(1200).height(1200).url() || "/placeholder.svg"}
               alt={product.name}
-              width={600}
-              height={600}
+              width={1200}
+              height={1200}
               className="w-full h-96 lg:h-[500px] object-cover"
             />
           </div>

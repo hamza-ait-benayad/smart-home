@@ -323,8 +323,8 @@ export function ProductCard({ product, viewMode, amazonProd }: { product: Produc
           <Image
             src={productImageUrl ? productImageUrl : "/placeholder.svg"}
             alt={product.name}
-            width={300}
-            height={300}
+            width={1000}
+            height={1000}
             className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-medium">
