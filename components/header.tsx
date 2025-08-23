@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ModeToggle } from "@/components/mode-toggle"
 import { Search, Menu, Home, Package, BookOpen } from "lucide-react"
+import Image from "next/image"
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -22,11 +23,11 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-lg bg-violet-600 flex items-center justify-center">
-              <Home className="h-5 w-5 text-white" />
-            </div>
-            <span className="font-playfair font-bold text-xl text-foreground">TechHome Hub</span>
+          <Link href="/" className="flex space-x-2">
+            {/* <div className="h-10 w-10 rounded-lg bg-black flex items-center justify-center">
+            </div> */}
+            <Image src={"/echofex-icon-logo.png"} alt="logo" height={500} width={500} className="w-8 h-8" />
+            <span className="font-playfair font-bold text-3xl text-foreground">Echofex</span>
           </Link>
 
           {/* Desktop Navigation */}

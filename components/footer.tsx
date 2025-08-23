@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Home, Mail, Phone } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
   const footerLinks = {
@@ -29,11 +30,9 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-lg bg-violet-600 flex items-center justify-center">
-                <Home className="h-5 w-5 text-white" />
-              </div>
-              <span className="font-playfair font-bold text-xl text-foreground">TechHome Hub</span>
+            <Link href="/" className="flex space-x-2">
+              <Image src={"/echofex-icon-logo.png"} alt="logo" height={500} width={500} className="w-8 h-8" />
+              <span className="font-playfair font-bold text-3xl text-foreground">Echofex</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Your trusted source for smart home device reviews, guides, and recommendations. Elevate your space with
