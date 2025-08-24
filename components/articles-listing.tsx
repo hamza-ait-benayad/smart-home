@@ -127,11 +127,11 @@ export function ArticlesListing({ allArticles }: ArticlesListingProps) {
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden">
                     <Image
-                      src={article.mainImage ? urlFor(article.mainImage).width(800).height(500).url() : "/placeholder.svg"}
+                      src={article.mainImage ? urlFor(article.mainImage).url() : "/placeholder.svg"}
                       alt={article.title}
-                      width={500}
-                      height={300}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                      width={1000}
+                      height={1000}
+                      className="w-full h-84 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <Badge className="absolute top-4 left-4 bg-violet-600 text-white">Featured</Badge>
                     <Badge className="absolute top-4 right-4 bg-background/90 text-foreground" variant="secondary">
@@ -246,11 +246,11 @@ export function ArticlesListing({ allArticles }: ArticlesListingProps) {
               <CardContent className="p-0">
                 <div className="relative overflow-hidden">
                   <Image
-                    src={article.mainImage ? urlFor(article.mainImage).width(800).height(500).url() : "/placeholder.svg"}
+                    src={article.mainImage ? urlFor(article.mainImage).url() : "/placeholder.svg"}
                     alt={article.title}
                     width={400}
                     height={250}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-58 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <Badge className="absolute top-3 left-3 bg-violet-600 text-white" variant="secondary">
                     {article.category?.title}

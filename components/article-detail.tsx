@@ -176,13 +176,16 @@ export function ArticleDetail({ article }: ArticleDetailProps) {
       <div className="prose prose-lg max-w-none">
         <div className="prose prose-lg max-w-none"><PortableText value={article.content} components={components} /></div>
       </div>
-      {
+      <div className="flex flex-col gap-5">
+        {
         article.relatedProducts?.map((product) => (
           <div key={product._id}>
             <ProductCard product={product} viewMode="list" amazonProd={true}/>
           </div>
         ))
       }
+      </div>
+      
       {/* Article Footer */}
       <footer className="mt-12 pt-8 border-t border-border">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
