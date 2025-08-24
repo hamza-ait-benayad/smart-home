@@ -15,7 +15,7 @@ interface RelatedProductsProps {
 
 export async function RelatedProducts({ categoryId, currentId }: RelatedProductsProps) {
   // Filter out current product and show related ones
-  const relatedProducts: Product[] = await client.fetch(relatedProductsQuery,{categoryId, currentId})
+  const relatedProducts: Product[] = await client.fetch(relatedProductsQuery, { categoryId, currentId })
 
   return (
     <section className="py-16 bg-muted/30">
@@ -62,9 +62,8 @@ export async function RelatedProducts({ categoryId, currentId }: RelatedProducts
                         {[...Array(5)].map((_, i) => (
                           <Star
                             key={i}
-                            className={`h-4 w-4 ${
-                              i < Math.floor(product.rating) ? "text-yellow-400 fill-current" : "text-gray-300"
-                            }`}
+                            className={`h-4 w-4 ${i < Math.floor(product.rating) ? "text-yellow-400 fill-current" : "text-gray-300"
+                              }`}
                           />
                         ))}
                       </div>

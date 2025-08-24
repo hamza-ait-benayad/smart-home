@@ -90,7 +90,7 @@ export async function RelatedArticles({ currentId, categoryId }: RelatedArticles
                   </div>
 
                   <div>
-                    <Link href={`/articles/${article.slug}`}>
+                    <Link href={`/articles/${article.slug.current}`}>
                       <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-violet-600 transition-colors line-clamp-2">
                         {article.title}
                       </h3>
@@ -99,7 +99,7 @@ export async function RelatedArticles({ currentId, categoryId }: RelatedArticles
                   </div>
 
                   <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <Link href={`/articles/${article.slug}`}>
+                    <Link href={`/articles/${article.slug.current}`}>
                       <div className="flex items-center text-violet-600 hover:text-violet-700 text-sm font-medium group">
                         Read More
                         <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
