@@ -59,11 +59,11 @@ export async function BlogSection() {
                   {/* Post Image */}
                   <div className="relative overflow-hidden">
                     <OptimizedImage
-                      src={post.mainImage ? urlFor(post.mainImage).width(800).height(500).url() : "/placeholder.svg"}
+                      src={post.mainImage ? urlFor(post.mainImage).url() : "/placeholder.svg"}
                       alt={post.title}
                       width={400}
                       height={250}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-58 object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <Badge className="absolute top-3 left-3 bg-violet-600 text-white" variant="secondary">

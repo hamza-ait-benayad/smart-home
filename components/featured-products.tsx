@@ -69,7 +69,7 @@ export async function FeaturedProducts() {
                   {/* Product Image */}
                   <div className="relative overflow-hidden rounded-t-lg">
                     <OptimizedImage
-                      src={urlFor(product.image).width(1000).height(1000).url() || "/placeholder.svg"}
+                      src={urlFor(product.image).url() || "/placeholder.svg"}
                       alt={product.name}
                       width={1000}
                       height={1000}
