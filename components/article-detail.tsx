@@ -176,7 +176,7 @@ export function ArticleDetail({ article }: ArticleDetailProps) {
       <div className="prose prose-lg max-w-none">
         <div className="prose prose-lg max-w-none"><PortableText value={article.content} components={components} /></div>
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 ">
         {
         article.relatedProducts?.map((product) => (
           <div key={product._id}>

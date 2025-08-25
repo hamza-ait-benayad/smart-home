@@ -235,12 +235,12 @@ export function ProductCard({ product, viewMode, amazonProd }: { product: Produc
         <CardContent className="p-0">
           <div className="flex flex-col md:flex-row">
             {/* Product Image */}
-            <div className="md:w-64 flex-shrink-0">
+            <div className="md:w-72 flex-shrink-0">
               <Image
                 src={productImageUrl || "/placeholder.svg"}
                 alt={product.name}
-                width={600}
-                height={700}
+                width={1000}
+                height={600}
                 className="w-full h-full object-cover rounded-l-lg"
               />
             </div>
@@ -298,13 +298,23 @@ export function ProductCard({ product, viewMode, amazonProd }: { product: Produc
                       Save {savings}%
                     </Badge>
                   </div>
+                  <div className="flex flex-col-reverse gap-2">
+                    <Link href={`/products/${product.slug.current}`}>
+                      <Button className={`w-full bg-transparent border-2 border-violet-700 hover:bg-violet-700  hover:text-white text-violet-700 group`} size="lg">
+                        View Details
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                    {amazonProd &&
+                      <Link href={product.affiliateUrl}>
+                        <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold group" size="lg">
+                          Check Price on Amazon
+                          <Image src={"/aws_amazon_web_services_icon.svg"} alt="amazon icon" width={500} height={500} className="h-10 w-10 font-bold" />
+                        </Button>
+                      </Link>
+                    }
+                  </div>
 
-                  <Link href={`${amazonProd ? product.affiliateUrl : `/products/${product.slug.current}`}`}>
-                    <Button className={`w-full ${amazonProd ? "bg-yellow-500 hover:bg-yellow-600 text-black font-bold" : "bg-violet-500 hover:bg-violet-700 text-white"}  group`} size="lg">
-                      {amazonProd ? "Check Price on Amazon" : "View Details"}
-                      {amazonProd ? <Image src={"/aws_amazon_web_services_icon.svg"} alt="amazon icon" width={500} height={500} className="h-10 w-10 font-bold" /> : <ExternalLink className="ml-2 h-4 w-4" />}
-                    </Button>
-                  </Link>
                 </div>
               </div>
             </div>
