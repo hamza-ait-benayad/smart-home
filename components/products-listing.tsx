@@ -382,7 +382,7 @@ export function ProductCard({ product, viewMode, amazonProd }: { product: Produc
         </div>
       </CardContent>
 
-      <CardFooter className="p-6 pt-0">
+      <CardFooter className="p-6 pt-0 ">
         <Link href={`${amazonProd ? product.affiliateUrl : `/products/${product.slug.current}`}`} className="w-full">
           <Button className={`w-full ${amazonProd ? "bg-yellow-500 hover:bg-yellow-600 text-black" : "bg-violet-500 hover:bg-violet-700 text-white"}  group`} size="lg">
             View Details

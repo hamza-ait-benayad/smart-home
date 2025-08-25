@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Search, Calendar, Clock, User, ArrowRight } from "lucide-react"
@@ -160,17 +160,19 @@ export function ArticlesListing({ allArticles }: ArticlesListingProps) {
                       <p className="text-muted-foreground leading-relaxed line-clamp-3">{article.excerpt}</p>
                     </div>
 
-                    <Link href={`/articles/${article.slug.current}`}>
-                      <Button
-                        variant="ghost"
-                        className="text-violet-600 hover:text-violet-700 hover:bg-violet-50 dark:hover:bg-violet-950/20 p-0 h-auto font-medium group"
-                      >
-                        Read Full Article
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
                   </div>
                 </CardContent>
+                <CardFooter className="p-6 pt-0">
+                  <Link href={`/articles/${article.slug.current}`}>
+                    <Button
+                      variant="ghost"
+                      className="text-violet-600 hover:text-violet-700 hover:bg-violet-50 dark:hover:bg-violet-950/20 p-0 h-auto font-medium group"
+                    >
+                      Read Full Article
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                </CardFooter>
               </Card>
             ))}
           </div>
