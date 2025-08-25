@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Zap, Shield, Wifi } from "lucide-react"
 import { OptimizedImage } from "./optimized-image"
+import Link from "next/link"
 
 export function HeroSection() {
   return (
@@ -37,20 +38,25 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="bg-violet-600 hover:bg-violet-700 text-white px-8 py-3 text-base font-semibold group transition-all duration-200"
-              >
-                Explore Products
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-violet-200 text-violet-700 hover:bg-violet-50 dark:border-violet-800 dark:text-violet-300 dark:hover:bg-violet-950/20 px-8 py-3 text-base bg-transparent transition-all duration-200"
-              >
-                Read Reviews
-              </Button>
+              <Link href={'/products'}>
+                <Button
+                  size="lg"
+                  className="bg-violet-600 hover:bg-violet-700 text-white px-8 py-3 text-base font-semibold group transition-all duration-200"
+                >
+                  Explore Products
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link href={'/articles'}>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-violet-200 text-violet-700 hover:bg-violet-50 dark:border-violet-800 dark:text-violet-300 dark:hover:bg-violet-950/20 px-8 py-3 text-base bg-transparent transition-all duration-200"
+                >
+                  Read Reviews
+                </Button>
+              </Link>
+
             </div>
 
             {/* Stats */}
