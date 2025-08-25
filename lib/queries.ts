@@ -39,7 +39,7 @@ export const singleArticleQuery = `
   relatedProducts[]->{
     _id,
     name,
-    description,
+    reviews,
     slug,
     price,
     originalPrice,

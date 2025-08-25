@@ -57,7 +57,7 @@ declare global {
     model?: string
     features?: string[]
     specifications?: Specification[]
-    affiliateUrl?: string
+    affiliateUrl: string
   }
 
 }
