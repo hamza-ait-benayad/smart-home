@@ -35,7 +35,7 @@ interface articleSchema {
 }
 
 export async function BlogSection() {
-  const blogPosts = await client.fetch(allArticlesQuery);
+  const articles = await client.fetch(allArticlesQuery);
   return (
     <LazyLoadSection>
       <section className="py-20 bg-muted/30 dark:bg-muted/10 transition-colors duration-300">
@@ -50,24 +50,24 @@ export async function BlogSection() {
 
           {/* Blog Posts Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post: articleSchema) => (
+            {articles.map((article: articleSchema) => (
               <Card
-                key={post._id}
+                key={article._id}
                 className="group hover:shadow-lg transition-all duration-300 border-border hover:border-violet-200 dark:hover:border-violet-800 overflow-hidden"
               >
                 <CardContent className="p-0">
                   {/* Post Image */}
                   <div className="relative overflow-hidden">
                     <OptimizedImage
-                      src={post.mainImage ? urlFor(post.mainImage).url() : "/placeholder.svg"}
-                      alt={post.title}
+                      src={article.mainImage ? urlFor(article.mainImage).url() : "/placeholder.svg"}
+                      alt={article.title}
                       width={400}
                       height={250}
                       className="w-full h-58 object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <Badge className="absolute top-3 left-3 bg-violet-600 text-white" variant="secondary">
-                      {post.category?.title}
+                      {article.category?.title}
                     </Badge>
                   </div>
 
@@ -76,30 +76,32 @@ export async function BlogSection() {
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Calendar className="h-4 w-4" />
-                        <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+                        <span>{new Date(article.publishedAt).toLocaleDateString()}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Clock className="h-4 w-4" />
-                        <span>{post.readTime}</span>
+                        <span>{article.readTime}</span>
                       </div>
                     </div>
-
                     <div>
-                      <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-violet-600 transition-colors line-clamp-2">
-                        {post.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{post.excerpt}</p>
+                      <Link href={`articles/${article.slug.current}`}>
+                        <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-violet-600 transition-colors line-clamp-2">
+                          {article.title}
+                        </h3>
+                      </Link>
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{article.excerpt}</p>
                     </div>
-
                     <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-violet-600 hover:text-violet-700 hover:bg-violet-50 dark:hover:bg-violet-950/20 p-0 h-auto font-medium group transition-all duration-200"
-                      >
-                        Read More
-                        <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                      </Button>
+                      <Link href={`/articles/${article.slug.current}`}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="text-violet-600 hover:text-violet-700 hover:bg-violet-50 dark:hover:bg-violet-950/20 p-0 h-auto font-medium group transition-all duration-200"
+                        >
+                          Read More
+                          <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </CardContent>

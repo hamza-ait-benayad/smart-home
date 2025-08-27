@@ -132,13 +132,15 @@ export async function FeaturedProducts() {
                 </CardContent>
 
                 <CardFooter className="p-6 pt-0">
-                  <Button
-                    className="w-full bg-violet-600 hover:bg-violet-700 dark:bg-violet-600 dark:hover:bg-violet-500 text-white group transition-all duration-200 shadow-md hover:shadow-lg"
-                    size="lg"
-                  >
-                    View Details
-                    <ExternalLinkIcon />
-                  </Button>
+                  <Link href={`/products/${product.slug.current}`} className="w-full">
+                    <Button
+                      className="w-full bg-violet-600 hover:bg-violet-700 dark:bg-violet-600 dark:hover:bg-violet-500 text-white group transition-all duration-200 shadow-md hover:shadow-lg"
+                      size="lg"
+                    >
+                      View Details
+                      <ExternalLinkIcon />
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             ))}
@@ -146,14 +148,16 @@ export async function FeaturedProducts() {
 
           {/* View All Button */}
           <div className="text-center mt-12">
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-violet-200 text-violet-700 hover:bg-violet-50 hover:border-violet-300 dark:border-violet-700 dark:text-violet-300 dark:hover:bg-violet-900/30 dark:hover:border-violet-600 px-8 bg-transparent transition-all duration-200"
-            >
-              View All Products
-              <ArrowRightIcon />
-            </Button>
+            <Link href={"/products"}>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-violet-200 text-violet-700 hover:bg-violet-50 hover:border-violet-300 dark:border-violet-700 dark:text-violet-300 dark:hover:bg-violet-900/30 dark:hover:border-violet-600 px-8 bg-transparent transition-all duration-200"
+              >
+                View All Products
+                <ArrowRightIcon />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

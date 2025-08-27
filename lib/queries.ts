@@ -105,7 +105,7 @@ export const singleProductQuery = (slug: string) => `*[_type == "product" && slu
 export const featuredProductsQuery = `*[_type == "product" && featured == true]{
   _id,
   name,
-  "slug": slug.current,
+  slug,
   description,
   price,
   originalPrice,
