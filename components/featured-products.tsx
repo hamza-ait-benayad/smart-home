@@ -85,7 +85,7 @@ export async function FeaturedProducts() {
                       {"featured"}
                     </Badge>
                     <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-medium text-foreground">
-                      {product.category.title}
+                      {product.category?.title}
                     </div>
                   </div>
 

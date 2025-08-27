@@ -12,6 +12,11 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
+export async function generateStaticParams() {
+  const articles: Article[] = await await client.fetch(allArticlesQuery)
+  return articles
+}
+
 export default async function ArticlesPage() {
   const articles = await client.fetch(allArticlesQuery, {}, {
     next: { revalidate: 60 },
