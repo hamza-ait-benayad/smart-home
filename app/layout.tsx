@@ -58,7 +58,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#7c3aed" />
         <meta name="color-scheme" content="light dark" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-
+        <meta name="google-site-verification" content="a6KlWNchltIO-A2N_vtecb1fUq5R2m4TsVoxnyNK1Ts" />
+        
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
