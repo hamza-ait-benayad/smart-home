@@ -24,9 +24,9 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex space-x-2">
-            {/* <div className="h-10 w-10 rounded-lg bg-black flex items-center justify-center">
-            </div> */}
-            <Image src={"/echofex-icon-logo.png"} alt="logo" height={500} width={500} className="w-8 h-8" />
+            <div className="h-10 w-10 rounded-lg bg-violet-700 flex items-center justify-center">
+            <Image src={"/echofex-icon-logo.png"} alt="logo" height={1000} width={1000} className="w-8 h-8" />
+            </div>
             <span className="font-playfair font-bold text-3xl text-foreground">Echofex</span>
           </Link>
 

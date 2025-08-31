@@ -31,9 +31,11 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex space-x-2">
-              <Image src={"/echofex-icon-logo.png"} alt="logo" height={500} width={500} className="w-8 h-8" />
-              <span className="font-playfair font-bold text-3xl text-foreground">Echofex</span>
-            </Link>
+            <div className="h-12 w-12 rounded-lg bg-foreground flex items-center justify-center">
+            <Image src={"/echofex-icon-logo.png"} alt="logo" height={1000} width={1000} className="w-10 h-10" />
+            </div>
+            <span className="font-playfair font-bold text-4xl text-foreground">Echofex</span>
+          </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Your trusted source for smart home device reviews, guides, and recommendations. Elevate your space with
               the latest technology.
