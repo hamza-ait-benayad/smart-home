@@ -15,9 +15,9 @@ export const revalidate = 60;
 export default async function ProductsPage() {
   const allProducts = await client.fetch(allProductsQuery, {}, {
     next: { revalidate: 60 },
-  });  return (
+  }); return (
     <div className="min-h-screen bg-background">
-      <ProductsListing allProducts={allProducts}/>
+      <ProductsListing allProducts={allProducts} />
     </div>
   )
 }
