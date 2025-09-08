@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   category: "technology",
+   other: {
+    'google-site-verification': 'a6KlWNchltIO-A2N_vtecb1fUq5R2m4TsVoxnyNK1Ts',
+  },
 }
 
 export default function RootLayout({
@@ -50,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://techhomehub.com" />
+        <link rel="canonical" href="https://www.echofex.me/" />
         <link rel="icon" href="/echofex-icon-logo.png" sizes="any" />
         <link rel="icon" href="/echofex-icon-logo.png" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -87,8 +90,8 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Echofex",
               description: "Expert reviews and guides for smart home devices and technology",
-              url: "https://techhomehub.com",
-              logo: "https://techhomehub.com/logo.png",
+              url: "https://www.echofex.me",
+              logo: "https://www.echofex.me/echofex-icon-logo.png",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+1-555-123-4567",

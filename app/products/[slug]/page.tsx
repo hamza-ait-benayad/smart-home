@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       type: "website", // <-- change from "product"
       title: product.name,
       description: product.description,
-      url: `https://yourdomain.com/products/${product.slug.current}`,
+      url: `https://www.echofex.me/products/${product.slug.current}`,
       images: [
         {
           url: product.image ? urlFor(product.image).url() : "/placeholder.svg",

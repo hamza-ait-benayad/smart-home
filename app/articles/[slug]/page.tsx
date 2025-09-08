@@ -47,6 +47,9 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       description: article.excerpt,
       images: article.mainImage ? [{ url: urlFor(article.mainImage) }] : [],
     },
+  alternates: {
+    canonical: `https://www.echofex.me/articles/${article.slug.current}`,
+  },
   };
 }
 
