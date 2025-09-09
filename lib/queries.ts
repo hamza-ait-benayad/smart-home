@@ -15,7 +15,7 @@ export const allArticlesQuery = `*[_type == "article"] | order(publishedAt desc)
   featured
 }`;
 
-export const featuredArticlesQuery = `*[_type == "article" && featured == true] {
+export const featuredArticlesQuery = `*[_type == "article" && featured == true][0..5]{
   _id, title, slug, mainImage, excerpt, readTime, publishedAt
 }`;
 
@@ -102,7 +102,7 @@ export const singleProductQuery = (slug: string) => `*[_type == "product" && slu
 }`
 
 
-export const featuredProductsQuery = `*[_type == "product" && featured == true]{
+export const featuredProductsQuery = `*[_type == "product" && featured == true][0..8]{
   _id,
   name,
   slug,
