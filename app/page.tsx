@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Echofex",
     images: [
       {
-        url: "/og-image.png",
+        url: "/echofex-icon-logo.png",
         width: 1200,
         height: 630,
         alt: "Echofex - Smart Home Technology",

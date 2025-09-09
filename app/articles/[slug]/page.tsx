@@ -14,7 +14,7 @@ interface ArticlePageProps {
   }
 }
 
-export const revalidate = 60;
+export const revalidate = 86400
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
 
@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
   if (!article) {
     return {
-      title: "Article Not Found | TechHome Hub",
+      title: "Article Not Found | Echofex",
     }
   }
 
   return {
-    title: `${article.title} | TechHome Hub`,
+    title: `${article.title} | Echofex`,
     description: article.excerpt,
     keywords: article.keywords?.join(", "),
     openGraph: {

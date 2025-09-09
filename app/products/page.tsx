@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   keywords: "smart home, IoT devices, home automation, smart gadgets, connected devices",
 }
 
-export const revalidate = 60;
+export const revalidate = 7200
 
 export default async function ProductsPage() {
   const allProducts = await client.fetch(allProductsQuery, {}, {
-    next: { revalidate: 60 },
+    next: { revalidate: 7200 },
   }); return (
     <div className="min-h-screen bg-background">
       <ProductsListing allProducts={allProducts} />

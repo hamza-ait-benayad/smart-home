@@ -12,18 +12,20 @@ interface ProductPageProps {
   }
 }
 
+export const revalidate = 7200
+
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params
   const product: Product = await client.fetch(singleProductQuery(slug));
 
   if (!product) {
     return {
-      title: "Product Not Found | TechHome Hub",
+      title: "Product Not Found | Echofex",
     }
   }
 
   return {
-    title: `${product.name} - ${product.brand} | TechHome Hub`,
+    title: `${product.name} - ${product.brand} | Echofex`,
     description: product.description,
     keywords: `${product.name}, ${product.brand}, ${product.category}, smart home, review`,
     openGraph: {
