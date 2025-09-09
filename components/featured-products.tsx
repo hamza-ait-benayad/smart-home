@@ -97,7 +97,7 @@ export async function FeaturedProducts() {
                           {product.name}
                         </h3>
                       </Link>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{product.description}</p>
                     </div>
 
                     {/* Rating */}

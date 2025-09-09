@@ -131,7 +131,7 @@ export function ArticlesListing({ allArticles }: ArticlesListingProps) {
                       alt={article.title}
                       width={1000}
                       height={1000}
-                      className="w-full h-84 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-52 sm:h-84 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <Badge className="absolute top-4 left-4 bg-violet-600 text-white">Featured</Badge>
                     <Badge className="absolute top-4 right-4 bg-background/90 text-foreground" variant="secondary">
@@ -252,7 +252,7 @@ export function ArticlesListing({ allArticles }: ArticlesListingProps) {
                     alt={article.title}
                     width={400}
                     height={250}
-                    className="w-full h-58 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-50 sm:h-58 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <Badge className="absolute top-3 left-3 bg-violet-600 text-white" variant="secondary">
                     {article.category?.title}

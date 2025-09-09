@@ -335,7 +335,7 @@ export function ProductCard({ product, viewMode, amazonProd }: { product: Produc
             alt={product.name}
             width={1000}
             height={1000}
-            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-50 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-medium">
             {product.category?.title}
@@ -353,7 +353,7 @@ export function ProductCard({ product, viewMode, amazonProd }: { product: Produc
                 {product.name}
               </h3>
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
+            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{product.description}</p>
           </div>
 
           {/* Rating */}
