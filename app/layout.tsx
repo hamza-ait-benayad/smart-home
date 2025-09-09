@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   applicationName: "Echofex",
   referrer: "origin-when-cross-origin",
   keywords: ["smart home", "IoT", "home automation", "tech reviews", "gadgets"],
-  authors: [{ name: "Echofex Team", url: "https://techhomehub.com" }],
+  authors: [{ name: "Echofex Team", url: "https://www.echofex.me" }],
   creator: "Echofex",
   publisher: "Echofex",
   formatDetection: {
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  category: "technology",
-   other: {
+  category: "automation",
+  other: {
     'google-site-verification': 'a6KlWNchltIO-A2N_vtecb1fUq5R2m4TsVoxnyNK1Ts',
   },
 }
@@ -96,13 +96,13 @@ export default function RootLayout({
                 "@type": "ContactPoint",
                 telephone: "+1-555-123-4567",
                 contactType: "customer service",
-                email: "hello@techhomehub.com",
+                email: "hello@echofex.com",
               },
               sameAs: [
-                "https://twitter.com/techhomehub",
-                "https://facebook.com/techhomehub",
-                "https://linkedin.com/company/techhomehub",
-                "https://youtube.com/c/techhomehub",
+                "https://twitter.com/echofex",
+                "https://facebook.com/echofex",
+                "https://linkedin.com/company/echofex",
+                "https://youtube.com/c/echofex",
               ],
               address: {
                 "@type": "PostalAddress",

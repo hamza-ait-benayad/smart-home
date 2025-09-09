@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://techhomehub.com"),
+  metadataBase: new URL("https://www.echofex.me"),
   alternates: {
     canonical: "/",
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Echofex - Smart Home Devices & Tech Gadgets Reviews",
     description:
       "Discover the best smart home devices and tech gadgets. Expert reviews, buying guides, and recommendations for home automation.",
-    url: "https://techhomehub.com",
+    url: "https://www.echofex.me",
     siteName: "Echofex",
     images: [
       {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     description:
       "Discover the best smart home devices and tech gadgets. Expert reviews, buying guides, and recommendations.",
     images: ["/twitter-image.png"],
-    creator: "@techhomehub",
+    creator: "@echofex",
   },
   robots: {
     index: true,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "a6KlWNchltIO-A2N_vtecb1fUq5R2m4TsVoxnyNK1Ts",
     yandex: "your-yandex-verification-code",
     yahoo: "your-yahoo-verification-code",
   },
@@ -84,12 +84,12 @@ export default function HomePage() {
             name: "Echofex",
             description:
               "Expert reviews and guides for smart home devices, IoT gadgets, and home automation technology.",
-            url: "https://techhomehub.com",
+            url: "https://www.echofex.me",
             potentialAction: {
               "@type": "SearchAction",
               target: {
                 "@type": "EntryPoint",
-                urlTemplate: "https://techhomehub.com/products?search={search_term_string}",
+                urlTemplate: "https://www.echofex.me/products?search={search_term_string}",
               },
               "query-input": "required name=search_term_string",
             },
@@ -98,12 +98,12 @@ export default function HomePage() {
               name: "Echofex",
               logo: {
                 "@type": "ImageObject",
-                url: "https://techhomehub.com/logo.png",
+                url: "https://www.echofex.me/echofex-icon-logo.png",
               },
               sameAs: [
-                "https://twitter.com/techhomehub",
-                "https://facebook.com/techhomehub",
-                "https://linkedin.com/company/techhomehub",
+                "https://twitter.com/echofex",
+                "https://facebook.com/echofex",
+                "https://linkedin.com/company/echofex",
               ],
             },
           }),

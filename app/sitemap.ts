@@ -1,7 +1,11 @@
+import { allArticlesQuery, allProductsQuery } from "@/lib/queries"
+import { client } from "@/lib/sanity.client"
 import type { MetadataRoute } from "next"
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap() {
   const baseUrl = "https://www.echofex.me"
+  const articles: Article[] = await client.fetch(allArticlesQuery);
+  const products: Product[] = await client.fetch(allProductsQuery);
 
   // Static pages
   const staticPages = [
@@ -25,37 +29,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Product pages
-  const productSlugs = [
-    "smart-thermostat-pro",
-    "security-camera-system",
-    "smart-door-lock",
-    "voice-assistant-hub",
-    "smart-lighting-kit",
-    "robot-vacuum-pro",
-    "smart-smoke-detector",
-    "smart-water-leak-sensor",
-  ]
 
-  const productPages = productSlugs.map((slug) => ({
-    url: `${baseUrl}/products/${slug}`,
+  const productPages = products.map((product) => ({
+    url: `${baseUrl}/products/${product.slug.current}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }))
 
-  // Article pages
-  const articleSlugs = [
-    "10-must-have-smart-home-devices-2024",
-    "smart-security-protecting-connected-home",
-    "energy-savings-smart-thermostats-guide",
-    "smart-lighting-setup-basic-to-advanced",
-    "voice-assistants-comparison-alexa-google-siri",
-  ]
 
-  const articlePages = articleSlugs.map((slug) => ({
-    url: `${baseUrl}/articles/${slug}`,
-    lastModified: new Date(),
+  const articlePages = articles.map((article) => ({
+    url: `${baseUrl}/articles/${article.slug.current}`,
+    lastModified: article.publishedAt,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }))
