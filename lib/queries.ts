@@ -164,3 +164,43 @@ export const relatedProductsQuery = `*[
   },
   affiliateUrl
 }`;
+
+// Search queries
+export const searchArticlesQuery = (term: string) => `
+  *[_type == "article" && (
+    title match "${term}*" ||
+    excerpt match "${term}*" ||
+    keywords[] match "${term}*"
+  )] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    excerpt,
+    mainImage,
+    publishedAt,
+    readTime,
+    category->{ title, slug }
+  }
+`;
+
+export const searchProductsQuery = (term: string) => `
+  *[_type == "product" && (
+    name match "${term}*" ||
+    description match "${term}*" ||
+    brand match "${term}*" ||
+    features[] match "${term}*"
+  )]{
+    _id,
+    name,
+    slug,
+    description,
+    price,
+    originalPrice,
+    rating,
+    reviews,
+    image,
+    category->{ title, slug },
+    affiliateUrl,
+    brand
+  }
+`;
