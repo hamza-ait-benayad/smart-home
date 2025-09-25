@@ -6,16 +6,26 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ModeToggle } from "@/components/mode-toggle"
-import { Search, Menu, Home, Package, BookOpen } from "lucide-react"
+import { Search, Menu, Home, Package, BookOpen, Info } from "lucide-react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("")
+  const router = useRouter()
+
+  function submitSearch() {
+    const q = searchTerm.trim()
+    if (!q) return
+    router.push(`/search?q=${encodeURIComponent(q)}`)
+  }
 
   const navigation = [
     { name: "Home", href: "/", icon: Home },
     { name: "Products", href: "/products", icon: Package },
     { name: "Articles", href: "/articles", icon: BookOpen },
+    { name: "About", href: "/about", icon: Info },
   ]
 
   return (
@@ -50,10 +60,17 @@ export function Header() {
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="Search products..."
+                  placeholder="Search products, articles..."
                   className="pl-10 w-64"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                   onFocus={() => setIsSearchOpen(true)}
                   onBlur={() => setIsSearchOpen(false)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      submitSearch()
+                    }
+                  }}
                 />
               </div>
             </div>
@@ -89,9 +106,19 @@ export function Header() {
                     )
                   })}
                   <div className="pt-4 border-t">
-                    <div className="relative">
+                  <div className="relative">
                       <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                      <Input placeholder="Search products..." className="pl-10" />
+                      <Input
+                        placeholder="Search products, articles..."
+                        className="pl-10"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            submitSearch()
+                          }
+                        }}
+                      />
                     </div>
                   </div>
                 </div>

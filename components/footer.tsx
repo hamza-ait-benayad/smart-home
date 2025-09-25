@@ -31,7 +31,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex space-x-2">
-            <div className="h-12 w-12 rounded-lg bg-foreground flex items-center justify-center">
+            <div className="h-12 w-12 rounded-lg bg-black flex items-center justify-center">
             <Image src={"/echofex-icon-logo.png"} alt="logo" height={1000} width={1000} className="w-10 h-10" />
             </div>
             <span className="font-playfair font-bold text-4xl text-foreground">Echofex</span>
