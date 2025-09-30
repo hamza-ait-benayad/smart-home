@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Suspense } from "react"
 import { client } from "@/lib/sanity.client"
-import { searchArticlesQuery, searchProductsQuery } from "@/lib/queries"
+import { searchArticlesQuery, searchProductsQuery, allCategoriesQuery } from "@/lib/queries"
 import { ArticlesListing } from "@/components/articles-listing"
 import { ProductsListing } from "@/components/products-listing"
 
@@ -26,16 +26,17 @@ async function SearchResults({ q }: { q: string }) {
     )
   }
 
-  const [articles, products] = await Promise.all([
+  const [articles, products, categories] = await Promise.all([
     client.fetch(searchArticlesQuery(term)),
     client.fetch(searchProductsQuery(term)),
+    client.fetch(allCategoriesQuery),
   ])
 
   return (
     <div className="space-y-12">
       <div>
         {articles?.length ? (
-          <ArticlesListing allArticles={articles} />
+          <ArticlesListing allArticles={articles} categories={categories} />
         ) : (
           <p className="text-muted-foreground">No articles found for "{term}".</p>
         )}
@@ -43,7 +44,7 @@ async function SearchResults({ q }: { q: string }) {
 
       <div>
         {products?.length ? (
-          <ProductsListing allProducts={products} />
+          <ProductsListing allProducts={products} categories={categories} />
         ) : (
           <p className="text-muted-foreground">No products found for "{term}".</p>
         )}
