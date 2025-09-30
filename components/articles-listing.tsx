@@ -42,12 +42,21 @@ export interface Article {
 }
 
 
+interface Category {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+}
+
 interface ArticlesListingProps {
   allArticles: Article[]
+  categories?: Category[]
 }
 
 
-const categories = ["All", "Buying Guide", "Security", "Energy", "Installation", "Reviews"]
+// Categories will be passed as props from parent component
 const sortOptions = [
   { value: "newest", label: "Newest First" },
   { value: "oldest", label: "Oldest First" },
@@ -56,12 +65,15 @@ const sortOptions = [
 ]
 
 
-export function ArticlesListing({ allArticles }: ArticlesListingProps) {
+export function ArticlesListing({ allArticles, categories = [] }: ArticlesListingProps) {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [sortBy, setSortBy] = useState("newest")
   const [currentPage, setCurrentPage] = useState(1)
   const articlesPerPage = 6
+
+  // Create categories list with "All" option
+  const categoryOptions = ["All", ...categories.map(cat => cat.title)]
 
   const filteredAndSortedArticles = useMemo(() => {
     const filtered = allArticles.filter((article) => {
@@ -200,7 +212,7 @@ export function ArticlesListing({ allArticles }: ArticlesListingProps) {
             <SelectValue placeholder="Category" />
           </SelectTrigger>
           <SelectContent>
-            {categories.map((category) => (
+            {categoryOptions.map((category) => (
               <SelectItem key={category} value={category}>
                 {category}
               </SelectItem>

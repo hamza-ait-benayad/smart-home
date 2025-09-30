@@ -12,9 +12,9 @@ export function Footer() {
     ],
     resources: [
       { name: "Buying Guides", href: "/articles/buying-guides" },
-      { name: "Installation Tips", href: "/articles/installation" },
-      { name: "Troubleshooting", href: "/articles/troubleshooting" },
       { name: "Product Reviews", href: "/articles/reviews" },
+      { name: "Comparisons", href: "/articles/comparisons" },
+      { name: "Installation Tips", href: "/articles/installation" },
     ],
     company: [
       { name: "About Us", href: "/about" },
@@ -37,17 +37,12 @@ export function Footer() {
             <span className="font-playfair font-bold text-4xl text-foreground">Echofex</span>
           </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Your trusted source for smart home device reviews, guides, and recommendations. Elevate your space with
-              the latest technology.
+              We help you discover the best smart home products on Amazon with honest reviews, comparisons, and buying guides. Make smart, informed shopping decisions.
             </p>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>hello@techhomehub.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>hello@echofex.com</span>
               </div>
             </div>
           </div>
@@ -107,7 +102,12 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">© 2025 Echofex. All rights reserved.</p>
-          <p className="text-sm text-muted-foreground">Built with Next.js and Tailwind CSS</p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p className="text-sm text-muted-foreground">
+              Some links are affiliate links. We may earn a commission at no extra cost to you.
+            </p>
+            <p className="text-sm text-muted-foreground">Built with Next.js and Tailwind CSS</p>
+          </div>
         </div>
       </div>
     </footer>
