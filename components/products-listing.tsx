@@ -10,18 +10,6 @@ import { Star, Search, Grid, List, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { urlFor } from "@/lib/sanity.client"
-
-
-const categories = [
-  "All",
-  "Climate Control",
-  "Security",
-  "Access Control",
-  "Hub & Control",
-  "Lighting",
-  "Cleaning",
-  "Safety",
-]
 const sortOptions = [
   { value: "popularity", label: "Most Popular" },
   { value: "price-low", label: "Price: Low to High" },
@@ -30,17 +18,29 @@ const sortOptions = [
   { value: "newest", label: "Newest First" },
 ]
 
-interface productsListingProps {
-  allProducts: Product[]
+interface Category {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
 }
 
-export function ProductsListing({ allProducts }: productsListingProps) {
+interface productsListingProps {
+  allProducts: Product[]
+  categories?: Category[]
+}
+
+export function ProductsListing({ allProducts, categories = [] }: productsListingProps) {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [sortBy, setSortBy] = useState("popularity")
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [currentPage, setCurrentPage] = useState(1)
   const productsPerPage = 6
+
+  // Create categories list with "All" option
+  const categoryOptions = ["All", ...categories.map(cat => cat.title)]
 
 
   const filteredAndSortedProducts = useMemo(() => {
@@ -109,7 +109,7 @@ export function ProductsListing({ allProducts }: productsListingProps) {
             <SelectValue placeholder="Category" />
           </SelectTrigger>
           <SelectContent>
-            {categories.map((category) => (
+            {categoryOptions.map((category) => (
               <SelectItem key={category} value={category}>
                 {category}
               </SelectItem>

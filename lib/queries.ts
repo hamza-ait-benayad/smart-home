@@ -204,3 +204,12 @@ export const searchProductsQuery = (term: string) => `
     brand
   }
 `;
+
+// Category query for filters
+export const allCategoriesQuery = `*[_type == "category"] | order(title asc) {
+  _id,
+  title,
+  slug {
+    current
+  }
+}`;

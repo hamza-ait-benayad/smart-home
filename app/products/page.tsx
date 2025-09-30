@@ -1,5 +1,5 @@
 import { ProductsListing } from "@/components/products-listing"
-import { allProductsQuery } from "@/lib/queries"
+import { allProductsQuery, allCategoriesQuery } from "@/lib/queries"
 import { client } from "@/lib/sanity.client"
 import type { Metadata } from "next"
 
@@ -13,11 +13,18 @@ export const metadata: Metadata = {
 export const revalidate = 7200
 
 export default async function ProductsPage() {
-  const allProducts = await client.fetch(allProductsQuery, {}, {
-    next: { revalidate: 7200 },
-  }); return (
+  const [allProducts, categories] = await Promise.all([
+    client.fetch(allProductsQuery, {}, {
+      next: { revalidate: 7200 },
+    }),
+    client.fetch(allCategoriesQuery, {}, {
+      next: { revalidate: 7200 },
+    })
+  ]);
+
+  return (
     <div className="min-h-screen bg-background">
-      <ProductsListing allProducts={allProducts} />
+      <ProductsListing allProducts={allProducts} categories={categories} />
     </div>
   )
 }
