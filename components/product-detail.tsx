@@ -163,7 +163,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 <ExternalLink className="h-4 w-4" />
               </a>
             </Button> */}
-            <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold group" size="lg">
+            <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold flex-1 text-base py-3">
               <a
                 href={product.affiliateUrl}
                 target="_blank"
@@ -173,7 +173,6 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 <ShoppingCart className="h-5 w-5" />
                 Check Price on Amazon
                 <Image src={"/aws_amazon_web_services_icon.svg"} alt="amazon icon" width={500} height={500} className="h-10 w-10 font-bold" />
-                <ExternalLink className="h-4 w-4" />
               </a>
             </Button>
 
