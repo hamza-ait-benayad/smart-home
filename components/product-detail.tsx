@@ -151,7 +151,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild size="lg" className="bg-violet-600 hover:bg-violet-700 text-white flex-1 text-base py-3">
+            {/* <Button asChild size="lg" className="bg-violet-600 hover:bg-violet-700 text-white flex-1 text-base py-3">
               <a
                 href={product.affiliateUrl}
                 target="_blank"
@@ -160,6 +160,19 @@ export function ProductDetail({ product }: ProductDetailProps) {
               >
                 <ShoppingCart className="h-5 w-5" />
                 Buy Now - ${product.price}
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </Button> */}
+            <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold group" size="lg">
+              <a
+                href={product.affiliateUrl}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="flex items-center justify-center gap-2"
+              >
+                <ShoppingCart className="h-5 w-5" />
+                Check Price on Amazon
+                <Image src={"/aws_amazon_web_services_icon.svg"} alt="amazon icon" width={500} height={500} className="h-10 w-10 font-bold" />
                 <ExternalLink className="h-4 w-4" />
               </a>
             </Button>
