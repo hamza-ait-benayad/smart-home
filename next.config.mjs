@@ -3,7 +3,18 @@ const nextConfig = {
   // Performance optimizations
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['@radix-ui/react-icons'],
+    optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
+  },
+
+  // Webpack optimizations
+  webpack: (config, { dev, isServer }) => {
+    // Enable tree shaking
+    config.optimization = {
+      ...config.optimization,
+      usedExports: true,
+      sideEffects: false,
+    }
+    return config
   },
   
   // Image optimization
@@ -41,6 +52,14 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains',
           },
         ],
       },
@@ -118,6 +137,15 @@ const nextConfig = {
       },
       {
         source: '/:path*.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.woff2',
         headers: [
           {
             key: 'Cache-Control',

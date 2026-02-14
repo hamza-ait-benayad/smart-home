@@ -76,35 +76,79 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Echofex",
-            description:
-              "Expert reviews and guides for smart home devices, IoT gadgets, and home automation technology.",
-            url: "https://www.echofex.me",
-            potentialAction: {
-              "@type": "SearchAction",
-              target: {
-                "@type": "EntryPoint",
-                urlTemplate: "https://www.echofex.me/products?search={search_term_string}",
-              },
-              "query-input": "required name=search_term_string",
-            },
-            publisher: {
-              "@type": "Organization",
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://www.echofex.me/#website",
               name: "Echofex",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://www.echofex.me/echofex-icon-logo.png",
+              description:
+                "Expert reviews and guides for smart home devices, IoT gadgets, and home automation technology.",
+              url: "https://www.echofex.me",
+              inLanguage: "en-US",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://www.echofex.me/search?q={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
               },
-              sameAs: [
-                "https://twitter.com/echofex",
-                "https://facebook.com/echofex",
-                "https://linkedin.com/company/echofex",
+              publisher: {
+                "@id": "https://www.echofex.me/#organization",
+              },
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "What are the best smart home devices for beginners?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "For beginners, we recommend starting with smart speakers (like Amazon Echo or Google Home), smart plugs, and smart bulbs. These devices are easy to set up, affordable, and provide immediate benefits without requiring complex installation.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "How do I choose the right smart home hub?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Choose a smart home hub based on your existing ecosystem (Amazon Alexa, Google Home, or Apple HomeKit), the devices you want to connect, your budget, and whether you need local processing or cloud-based control. Consider compatibility with Zigbee, Z-Wave, and Wi-Fi devices.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Are smart home devices secure?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Smart home devices can be secure when properly configured. Use strong passwords, enable two-factor authentication, keep firmware updated, use a separate network for IoT devices, and choose reputable brands with good security track records.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "What is the difference between Wi-Fi, Zigbee, and Z-Wave smart home devices?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Wi-Fi devices connect directly to your router and don't need a hub but consume more power. Zigbee and Z-Wave are low-power mesh network protocols that require a hub but offer better battery life, range, and network stability for large smart home setups.",
+                  },
+                },
               ],
             },
-          }),
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://www.echofex.me",
+                },
+              ],
+            },
+          ]),
         }}
       />
     </>
